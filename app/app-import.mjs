@@ -1,4 +1,5 @@
 import * as sys from "open-system";
+console.log(sys.version());
 console.log(sys.cwd());
 console.log(sys.exists("c:/Windows/notepad.exe"));
 console.log(sys.exists("c:/Windows/notepad.exeX"));
