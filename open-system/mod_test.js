@@ -1,4 +1,5 @@
-import * as asst from "https://deno.land/std@0.203.0/testing/asserts.ts";
+//import * as asst from "https://deno.land/std@0.203.0/testing/asserts.ts";
+import { assert } from "@std/assert";
 import * as sys from "./mod.js";
 
 Deno.test("test#01", async () => {
@@ -8,7 +9,7 @@ Deno.test("test#01", async () => {
     sys.mkdir("./tmp/abc/xyz");
     sys.writeTextFileSync("./tmp/abc/xyz.txt", "helloハロー©");
     await sys.run(["ls", "-l", "./tmp/abc"]);
-    asst.assertEquals(sys.readTextFileSync("./tmp/abc/xyz.txt"), "helloハロー©");
+    assert(sys.readTextFileSync("./tmp/abc/xyz.txt")  == "helloハロー©");
   } finally {
     sys.remove("./tmp");
   }

@@ -1,7 +1,8 @@
-import { existsSync } from "https://deno.land/std@0.203.0/fs/exists.ts";
+//import { existsSync } from "https://deno.land/std@0.203.0/fs/exists.ts";
+import { existsSync } from "@std/fs";
 
 export function version() {
-  return "open-system: version 2024.0122.125830";
+  return "open-system: version 2026.0109.195107";
 }
 
 export function args() {

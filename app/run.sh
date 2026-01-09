@@ -1,6 +1,7 @@
 #! /usr/bin/env bash
 set -uvx
 set -e
+deno install
 deno run --allow-all ./app-deno.js a b "c d"
 rm -rf node_modules
 npm install

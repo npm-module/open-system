@@ -1,4 +1,5 @@
-import { build, emptyDir } from "https://deno.land/x/dnt@0.39.0/mod.ts";
+//import { build, emptyDir } from "https://deno.land/x/dnt@0.39.0/mod.ts";
+import { build, emptyDir } from "@deno/dnt";
 
 await emptyDir("./npm");
 
@@ -25,4 +26,5 @@ await build({
     Deno.copyFileSync("../LICENSE", "../npm-module/LICENSE");
     Deno.copyFileSync("../README.md", "../npm-module/README.md");
   },
+  typeCheck: false, // https://shogo82148.github.io/blog/2024/08/13/denoland-dnt-cannot-find-error-options/
 });
