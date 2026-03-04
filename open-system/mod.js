@@ -1,8 +1,7 @@
-//import { existsSync } from "https://deno.land/std@0.203.0/fs/exists.ts";
 import { existsSync } from "@std/fs";
 
 export function version() {
-  return "open-system: version 2026.0109.195107";
+  return "open-system: version 2026.0304.170027";
 }
 
 export function args() {
@@ -20,7 +19,7 @@ export function cwd() {
 export function exists(path) {
   try {
     return existsSync(path);
-  } catch(e) {
+  } catch(_e) {
     return false;
   }
 }
@@ -34,6 +33,7 @@ export function remove(path) {
 }
 
 export async function run(v, ignoreErrors) {
+  // deno-lint-ignore no-deprecated-deno-api
   const p = Deno.run({
     cmd: v,
   });
@@ -42,7 +42,7 @@ export async function run(v, ignoreErrors) {
     console.log(JSON.stringify(v) + " exit code is " + code);
     throw new Error();
   }
-  let result = {};
+  const result = {};
   result.success = success;
   result.code = code;
   return result;
@@ -54,13 +54,14 @@ export async function runWithOutput(
   encoding,
 ) {
   if (encoding == null) encoding = "utf-8";
+  // deno-lint-ignore no-deprecated-deno-api
   const p = Deno.run({
     cmd: v,
     stdout: "piped",
     stderr: "piped",
   });
   const { success, code } = await p.status();
-  let result = {};
+  const result = {};
   if (!ignoreErrors && code !== 0) {
     console.log(JSON.stringify(v) + " exit code is " + code);
     throw new Error();
