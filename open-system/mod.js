@@ -1,7 +1,7 @@
 import { existsSync } from "@std/fs";
 
 export function version() {
-  return "open-system: version 2026.0304.170027";
+  return "open-system: version 2026.0304.171018";
 }
 
 export function args() {
