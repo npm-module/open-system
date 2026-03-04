@@ -1,11 +1,31 @@
 import { existsSync } from "@std/fs";
 
 export function version() {
-  return "open-system: version 2026.0304.171018";
+  return "open-system: version 2026.0304.172839";
 }
 
 export function args() {
   return Deno.args;
+}
+
+export function env() {
+  return Deno.env.toObject();
+}
+
+export function getEnv() {
+  return Deno.env.get(...arguments);
+}
+
+export function setEnv() {
+  return Deno.env.set(...arguments);
+}
+
+export function hasEnv() {
+  return Deno.env.has(...arguments);
+}
+
+export function deleteEnv() {
+  return Deno.env.delete(...arguments);
 }
 
 export function chdir(path) {
