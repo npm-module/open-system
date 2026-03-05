@@ -1,8 +1,23 @@
-import * as sys from "npm:open-system@2026.304.172839";
+#! /usr/bin/env -S deno -A
+//import * as sys from "../npm-module/esm/mod.js";
+import { lisp, system as sys } from "../npm-module/esm/mod.js";
 
-//console.log(emojify(":t-rex: :heart: NPM"));
 console.log(sys.version());
 console.log(sys.cwd());
 console.log(sys.exists("c:/Windows/notepad.exe"));
 await sys.run(["ls", "-ltr"]);
 console.log(sys.args());
+
+function add2(a, b) { return a + b; }
+globalThis.add2 = add2;
+
+var scope1 = lisp();
+scope1.run(`
+(console.log ($system.args))
+(console.log (add2 11 22))
+`);
+var scope2 = lisp({add2:add2});
+scope2.run(`
+(console.log ($system.args))
+(console.log ($scope.add2 111 222))
+`);

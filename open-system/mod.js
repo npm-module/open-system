@@ -1,7 +1,74 @@
 import { existsSync } from "@std/fs";
+import { xpLisp } from "xp-lisp"; 
+
+export function lisp($scope) {
+  if ($scope == null) $scope = globalThis;
+  $scope.$system = system;
+  return xpLisp($scope);
+}
+
+export class system {
+  static version() {
+    return version();
+  }
+  static lisp() {
+    return lisp(...arguments);
+  }
+  static args() {
+    return args();
+  }
+  static env() {
+    return env();
+  }
+  static getEnv() {
+    return getEnv(...arguments);
+  }
+  static setEnv() {
+    return setEnv(...arguments);
+  }
+  static hasEnv() {
+    return hasEnv(...arguments);
+  }
+  static deleteEnv() {
+    return deleteEnv(...arguments);
+  }
+  static chdir(path) {
+    return chdir(path);
+  }
+  static cwd() {
+    return cwd();
+  }
+  static exists(path) {
+    return exists(path);
+  }
+  static mkdir(path) {
+    return mkdir(path);
+  }
+  static remove(path) {
+    return remove(path);
+  }
+  static run(v, ignoreErrors) {
+    return run(v, ignoreErrors);
+  }
+  static runWithOutput(v, ignoreErrors, encoding) {
+    return runWithOutput(v, ignoreErrors, encoding);
+  }
+  static readTextFile(path) {
+    return readTextFile(path);
+  }
+  static readTextFileSync(path) {
+    return readTextFileSync(path);
+  }
+  static writeTextFile(path, text) {
+    return writeTextFile(path, text);
+  }
+  static writeTextFileSync(path, text) {
+    return writeTextFileSync(path, text);
+  }
+}
 
 export function version() {
-  return "open-system: version 2026.0304.172839";
+  return "open-system: version 2026.0306.065110";
 }
 
 export function args() {
