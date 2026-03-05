@@ -9,3 +9,4 @@ rm -rf ../npm-module
 deno run --allow-all ./mk-npm.ts $ts
 rm -rf $cwd/../npm-module/esm/tmp
 rm -rf $cwd/../npm-module/script/tmp
+rmdir npm
