@@ -68,7 +68,7 @@ export class system {
 }
 
 export function version() {
-  return "open-system: version 2026.0306.071350";
+  return "open-system: version 2026.310.62450";
 }
 
 export function args() {
